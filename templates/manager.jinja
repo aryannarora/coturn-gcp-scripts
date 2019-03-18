@@ -59,7 +59,6 @@ resources:
           wget https://raw.githubusercontent.com/aryannarora/coturn-gcp-scripts/master/turnserver.conf
           int_ip=$(hostname -i)
           ext_ip=$(curl ifconfig.me)
-
           sed -i "s/listening-ip=.*/listening-ip=${int_ip}/" turnserver.conf
           sed -i "s/relay-ip=.*/relay-ip=${int_ip}/" turnserver.conf
           sed -i "s/external-ip=.*/external-ip=${ext_ip}\/${int_ip}/" turnserver.conf
