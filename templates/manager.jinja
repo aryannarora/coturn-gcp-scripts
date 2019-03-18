@@ -64,4 +64,8 @@ resources:
           sed -i "s/external-ip=.*/external-ip=${ext_ip}\/${int_ip}/" turnserver.conf
 
           sudo cp turnserver.conf /usr/local/etc/turnserver.conf
+
+          wget https://raw.githubusercontent.com/aryannarora/coturn-gcp-scripts/master/init.sh
+          cp init.sh ~/init.sh
+          cd ~ && sudo chmod 777 init.sh
           gcloud compute instances add-metadata $(hostname) --metadata coturn-install-status=finished --zone {{ properties["zone"] }}
