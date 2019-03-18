@@ -56,7 +56,7 @@ resources:
           cd /turnserver-4.5.1.1 && ./configure
           cd /turnserver-4.5.1.1 && make
           cd /turnserver-4.5.1.1 && sudo make install
-          https://raw.githubusercontent.com/aryannarora/coturn-gcp-scripts/master/turnserver.conf
+          wget https://raw.githubusercontent.com/aryannarora/coturn-gcp-scripts/master/turnserver.conf
           int_ip=$(hostname -i)
           ext_ip=$(curl ifconfig.me)
 
