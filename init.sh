@@ -20,7 +20,7 @@ read user
 echo "enter password: "
 read password
 
-sudo sed -i "s/host=.*/host=${host}/" /usr/local/etc/turnserver.conf
-sudo sed -i "s/db=.*/db=${db}/" /usr/local/etc/turnserver.conf
-sudo sed -i "s/user=.*/user=${user}/" /usr/local/etc/turnserver.conf
+sudo sed -i "s/host=.*/host=${host:=localhost}/" /usr/local/etc/turnserver.conf
+sudo sed -i "s/dbname=.*/dbname=${db:=coturn}/" /usr/local/etc/turnserver.conf
+sudo sed -i "s/user=.*/user=${user:=user}/" /usr/local/etc/turnserver.conf
 sudo sed -i "s/password=.*/password=${password}/" /usr/local/etc/turnserver.conf
