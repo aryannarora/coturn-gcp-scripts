@@ -20,9 +20,9 @@ read ZONE
 
 echo "enter prefix (Default: vidmigos)"
 read PREFIX
-sed -i 's/prefix.*/prefix:'${PREFIX:=vidmigos}'/' options.yaml
+sed -i 's/prefix:.*/prefix:'${PREFIX:=vidmigos}'/' options.yaml
 #PREFIX=$(awk '{for(i=1;i<=NF;i++) if ($i=="prefix:") print $(i+1)}' options.yaml)
-sed -i 's/zone.*/zone:'$ZONE'/' options.yaml
+sed -i 's/zone:.*/zone:'$ZONE'/' options.yaml
 #ZONE=$(awk '{for(i=1;i<=NF;i++) if ($i=="zone:") $(i+1)=$ZONE}' options.yaml)
 PROJECT_ID=$(gcloud config list project | awk 'FNR ==2 { print $3 }')
 
