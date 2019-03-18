@@ -23,4 +23,4 @@ resources:
 
     #Config
     machine_type: n1-standard-1
-    disk: 100
+    disk: 10
