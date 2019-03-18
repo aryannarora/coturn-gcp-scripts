@@ -13,8 +13,16 @@
 
 # get cluster info from options.yaml
 
-PREFIX=$(awk '{for(i=1;i<=NF;i++) if ($i=="prefix:") print $(i+1)}' options.yaml)
-ZONE=$(awk '{for(i=1;i<=NF;i++) if ($i=="zone:") print $(i+1)}' options.yaml)
+echo "Enter desired zone: "
+gcloud compute zones list
+read zone
+
+echo "enter prefix (Default: vidmigos)"
+read prefix
+sed -i 's/prefix.*/prefix:'${prefix:=vidmigos}'/' options.yaml
+#PREFIX=$(awk '{for(i=1;i<=NF;i++) if ($i=="prefix:") print $(i+1)}' options.yaml)
+sed -i 's/zone.*/zone:'$zone'/' options.yaml
+#ZONE=$(awk '{for(i=1;i<=NF;i++) if ($i=="zone:") $(i+1)=$zone}' options.yaml)
 PROJECT_ID=$(gcloud config list project | awk 'FNR ==2 { print $3 }')
 
 echo "Creating deployment"
